@@ -11,12 +11,14 @@ public class CoffeMaker {
 	private int totalMadeCappucino;
 	boolean turnOn = false;
 
-	public void makeCoffe() {
+	public void makeCoffe() throws ResourcesExceptions, TurnOffException {
+		checkStatusForCoffe();
 		waterLeft--;
 		coffeBeansLeft--;
 	}
 
-	public void makeCappuccino() {
+	public void makeCappuccino() throws ResourcesExceptions, TurnOffException, IsNotCleanException {
+		checkStatusForCappuccino();
 		waterLeft--;
 		coffeBeansLeft--;
 		milkLeft--;

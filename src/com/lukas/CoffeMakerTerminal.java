@@ -18,7 +18,6 @@ public class CoffeMakerTerminal {
 
 			if (input.equals("1")) {
 				try {
-					coffeMaker.checkStatusForCoffe();
 					coffeMaker.makeCoffe();
 					System.out.println("Expresso is done");
 				} catch (Exception e) {
@@ -27,7 +26,6 @@ public class CoffeMakerTerminal {
 
 			} else if (input.equals("2")) {
 				try {
-					coffeMaker.checkStatusForCappuccino();
 					coffeMaker.makeCappuccino();
 					System.out.println("Cappuccino is done");
 				} catch (Exception e) {
