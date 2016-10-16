@@ -8,14 +8,14 @@ import com.lukas.exceptions.TurnOffException;
 import com.lukas.exceptions.WaterException;
 
 public class CoffeMaker {
-	private final static int FULL_WATER_CONTAINER = 15;
-	private final static int FULL_COFFE_BEANS_CONTAINER = 5;
-	private final static int FULL_MILK_CONTAINER = 10;
-	private final static int NEED_TO_CLEAN_AFTER_SERVINGS_OF_CAPPUCCINO = 7;
-	private int waterLeft;
-	private int coffeBeansLeft;
-	private int milkLeft;
-	private int totalMadeCappucino;
+	public final static int FULL_WATER_CONTAINER = 15;
+	public final static int FULL_COFFE_BEANS_CONTAINER = 5;
+	public final static int FULL_MILK_CONTAINER = 10;
+	public final static int NEED_TO_CLEAN_AFTER_SERVINGS_OF_CAPPUCCINO = 7;
+	int waterLeft;
+	int coffeBeansLeft;
+	int milkLeft;
+	int totalMadeCappucino;
 	boolean turnOn = false;
 
 	public void makeCoffe() throws ResourcesExceptions, TurnOffException {

@@ -7,12 +7,22 @@ import com.lukas.exceptions.ResourcesExceptions;
 import com.lukas.exceptions.TurnOffException;
 
 public class CoffeMakerTerminal {
-
+	
+	private CoffeMaker coffeMaker;
+	
 	public static void main(String[] args) {
-
+		new CoffeMakerTerminal(new CoffeMaker()).run();
+	}
+	
+	
+	
+	public CoffeMakerTerminal(CoffeMaker coffeMaker) {
+		this.coffeMaker = coffeMaker;
+	}
+	
+	public void run() {
 		Scanner reader = new Scanner(System.in);
-		CoffeMaker coffeMaker = new CoffeMaker();
-
+	
 		boolean keepRunning = true;
 		while (keepRunning) {
 
@@ -63,4 +73,5 @@ public class CoffeMakerTerminal {
 			}
 		}
 	}
+	
 }
