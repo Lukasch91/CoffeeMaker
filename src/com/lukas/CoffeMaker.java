@@ -1,5 +1,12 @@
 package com.lukas;
 
+import com.lukas.exceptions.BeansException;
+import com.lukas.exceptions.IsNotCleanException;
+import com.lukas.exceptions.MilkException;
+import com.lukas.exceptions.ResourcesExceptions;
+import com.lukas.exceptions.TurnOffException;
+import com.lukas.exceptions.WaterException;
+
 public class CoffeMaker {
 	private final static int FULL_WATER_CONTAINER = 15;
 	private final static int FULL_COFFE_BEANS_CONTAINER = 5;
@@ -26,9 +33,9 @@ public class CoffeMaker {
 	}
 
 	public void turnOn() {
-		if (turnOn == false) {
+		if (!turnOn) {
 			turnOn = true;
-		} else if (turnOn == true) {
+		} else if (turnOn) {
 			turnOn = false;
 		}
 
@@ -71,23 +78,23 @@ public class CoffeMaker {
 
 	public void checkStatusForCoffe() throws ResourcesExceptions, TurnOffException {
 		if (isBeansContainerEmpty())
-			throw new BeansException("It is not enough beans");
+			throw new BeansException("fill beans");
 		if (isWaterContainerEmpty())
-			throw new WaterException("It is not enough water");
+			throw new WaterException("fill water");
 		if (turnOn == false)
-			throw new TurnOffException("Coffe maker is off");
+			throw new TurnOffException("please, turn on coffee maker");
 	}
 
 	public void checkStatusForCappuccino() throws ResourcesExceptions, TurnOffException, IsNotCleanException {
 		if (isBeansContainerEmpty())
-			throw new BeansException("It is not enough beans");
+			throw new BeansException("fill beans");
 		if (isMilkContainerEmpty())
-			throw new MilkException("It is not enough milk");
+			throw new MilkException("fill milk");
 		if (isWaterContainerEmpty())
-			throw new WaterException("It is not enough water");
+			throw new WaterException("fill water");
 		if (totalMadeCappucino > NEED_TO_CLEAN_AFTER_SERVINGS_OF_CAPPUCCINO)
-			throw new IsNotCleanException("Need to clean coffee maker");
+			throw new IsNotCleanException("need to clean coffee maker");
 		if (turnOn == false)
-			throw new TurnOffException("Coffe maker is off");
+			throw new TurnOffException("please, turn on coffee maker");
 	}
 }

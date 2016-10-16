@@ -2,6 +2,10 @@ package com.lukas;
 
 import java.util.Scanner;
 
+import com.lukas.exceptions.IsNotCleanException;
+import com.lukas.exceptions.ResourcesExceptions;
+import com.lukas.exceptions.TurnOffException;
+
 public class CoffeMakerTerminal {
 
 	public static void main(String[] args) {
@@ -20,18 +24,23 @@ public class CoffeMakerTerminal {
 				try {
 					coffeMaker.makeCoffe();
 					System.out.println("Expresso is done");
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
+				} catch (ResourcesExceptions e) {
+					System.out.println("It's not enough resources : " + e.getMessage());
+				} catch (TurnOffException e) {
+					System.out.println("Coffer maker is switched off : " + e.getMessage());
 				}
 
 			} else if (input.equals("2")) {
 				try {
 					coffeMaker.makeCappuccino();
 					System.out.println("Cappuccino is done");
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
+				} catch (ResourcesExceptions e) {
+					System.out.println("It's not enough resources : " + e.getMessage());
+				} catch (TurnOffException e) {
+					System.out.println("Coffer maker is switched off : " + e.getMessage());
+				} catch (IsNotCleanException e) {
+					System.out.println("Coffee maker is not clean : " + e.getMessage());
 				}
-
 			} else if (input.equals("3")) {
 				coffeMaker.fillCoffeBeans();
 

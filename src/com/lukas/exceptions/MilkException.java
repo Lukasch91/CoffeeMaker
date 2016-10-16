@@ -1,4 +1,4 @@
-package com.lukas;
+package com.lukas.exceptions;
 
 public class MilkException extends ResourcesExceptions {
 
