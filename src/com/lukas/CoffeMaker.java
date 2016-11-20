@@ -77,15 +77,17 @@ public class CoffeMaker {
 	}
 
 	public void checkStatusForCoffe() throws ResourcesExceptions, TurnOffException {
+		if (turnOn == false)
+			throw new TurnOffException("please, turn on coffee maker");
 		if (isBeansContainerEmpty())
 			throw new BeansException("fill beans");
 		if (isWaterContainerEmpty())
 			throw new WaterException("fill water");
-		if (turnOn == false)
-			throw new TurnOffException("please, turn on coffee maker");
 	}
 
 	public void checkStatusForCappuccino() throws ResourcesExceptions, TurnOffException, IsNotCleanException {
+		if (turnOn == false)
+			throw new TurnOffException("please, turn on coffee maker");
 		if (isBeansContainerEmpty())
 			throw new BeansException("fill beans");
 		if (isMilkContainerEmpty())
@@ -94,7 +96,5 @@ public class CoffeMaker {
 			throw new WaterException("fill water");
 		if (totalMadeCappucino > NEED_TO_CLEAN_AFTER_SERVINGS_OF_CAPPUCCINO)
 			throw new IsNotCleanException("need to clean coffee maker");
-		if (turnOn == false)
-			throw new TurnOffException("please, turn on coffee maker");
 	}
 }
